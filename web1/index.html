@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>PRACT1</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Barra {
+        background-color: rgb(207, 247, 154);
+        width: 100%;
+        padding: 10px;
+    }
+    .fondo {
+        background-color: #f7eef3;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+    .fondo .saludos, .fondo .dias, .fondo .meses, .fondo .Numeros, .fondo .Verbos {
+        cursor: pointer;
+    }
+    .fondo .saludos {
+        position: absolute;
+        left: 25%;
+        top: 53%; 
+    }
+    .fondo .dias {
+        position: absolute;
+        left: 50%;
+        top: 53%; 
+    }
+    .fondo .meses {
+        position: absolute;
+        left: 75%;
+        top: 53%; 
+    }
+    .fondo .Numeros {
+        position: absolute;
+        left: 37%;
+        top: 90%; 
+    }
+    .fondo .Verbos {
+        position: absolute;
+        left: 64%;
+        top: 90%; 
+    }
+    .fondo .saludosimg {
+        width: 240px;
+        position: absolute;
+        left: 23%;
+        top: 23%; 
+    }
+    .fondo .diasimg {
+        width: 220px;
+        position: absolute;
+        left: 47%;
+        top: 25%; 
+    }
+    .fondo .mesesimg {
+        width: 240px;
+        position: absolute;
+        left: 72%;
+        top: 25%; 
+    }
+    .fondo .numerosimg {
+        width: 260px;
+        position: absolute;
+        left: 34%;
+        top: 64%; 
+    }
+    .fondo .verbosimg {
+        width: 160px;
+        position: absolute;
+        left: 61%;
+        top: 64%; 
+    }
+    h1 {
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+    <div class="Barra">
+        <h1><center>LEARNING ENGLISH</center></h1>
+    </div>
+    <h1>Que deseas aprender el día de hoy:</h1>
+    <div class="fondo">
+        <img class="saludosimg" src="saludos1.png" alt="1">
+        <div class="saludos" onclick="openPage('saludos.html')">SALUDOS</div>
+
+        <img class="diasimg" src="dias1.png" alt="">
+        <div class="dias" onclick="openPage('dias.html')">DIAS</div>
+
+        <img class="mesesimg" src="meses.pdf (1).png" alt="">
+        <div class="meses" onclick="openPage('meses.html')">MESES</div>
+
+        <img class="numerosimg" src="numbers.jpg" alt="">
+        <div class="Numeros" onclick="openPage('numeros.html')">NUMEROS</div>
+
+        <img class="verbosimg" src="verb.png" alt="">
+        <div class="Verbos" onclick="openPage('verbos.html')">VERBOS</div>
+    </div>
+
+    <script>
+        function openPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

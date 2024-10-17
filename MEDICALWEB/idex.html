@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recursosmile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Fondo de página (opcional) */
+            height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .barra {
+            background-color: #add8e6; /* Color celeste claro */
+            padding: 20px; /* Espaciado interno */
+            text-align: center; /* Centrar el texto */
+            width: 100%;
+        }
+        .fondo-amarillo {
+            background-color: #ffffe0; /* Color amarillo clarito */
+            flex: 1;
+            display: flex;
+            justify-content: center; /* Centrar el contenido horizontalmente */
+            align-items: center; /* Centrar el contenido verticalmente */
+            position: relative; /* Permite posicionar elementos relativamente */
+            width: 100%;
+        }
+        .fondo-amarillo .papasacha {
+            width: 500px; /* Tamaño más grande para la imagen papasacha */
+            position: absolute;
+            left: 10%; /* Mover la papa más a la izquierda */
+            top: -20px; /* Subir la imagen de la papa */
+        }
+        .fondo-amarillo .capsula {
+            width: 250px; /* Tamaño más mediano para la imagen de la cápsula */
+            position: absolute;
+            left: 60%; /* Mover la cápsula más cerca de la papa */
+            top: 40%; /* Mantener la posición más arriba */
+        }
+        .nombre-papa {
+            position: absolute;
+            left: 20%;
+            top: 80%; /* Colocar debajo de la papa */
+            font-size: 20px; /* Tamaño de fuente */
+            text-align: center; /* Centrar el texto */
+            font-weight: bold; /* Letra más gruesa */
+            color: #4b0082; /* Color morado oscuro */
+        }
+        .nombre-capsula {
+            position: absolute;
+            left: 60%;
+            top: 30%; /* Colocar encima de la cápsula */
+            font-size: 20px; /* Tamaño de fuente */
+            text-align: center; /* Centrar el texto */
+            font-weight: bold; /* Letra más gruesa */
+            color: #4b0082; /* Color morado oscuro */
+        }
+        .precio-capsula {
+            position: absolute;
+            left: 60%;
+            top: 75%; /* Colocar debajo de la cápsula */
+            font-size: 18px; /* Tamaño de la fuente para el precio */
+            color: #000; /* Color del precio */
+            text-align: center; /* Centrar el texto */
+        }
+        .ver-mas {
+            position: absolute;
+            left: 60%;
+            top: 80%; /* Colocar debajo de la cápsula */
+            cursor: pointer;
+            color: rgb(13, 13, 229); /* Color del enlace */
+            text-decoration: underline; /* Subrayar el enlace */
+        }
+        .info-curativa {
+            display: none; /* Ocultar inicialmente */
+            position: absolute;
+            left: 60%;
+            top: 80%; /* Ajustar posición según sea necesario */
+            background-color: white; /* Fondo blanco para la información */
+            border: 1px solid #ccc; /* Borde gris */
+            padding: 10px; /* Espaciado interno */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            width: 200px; /* Ancho de la información */
+        }
+        .contacto {
+            position: absolute;
+            left: 84%; /* Colocar más a la derecha */
+            top: 80%; /* Colocar en la parte inferior */
+            font-size: 18px; /* Tamaño de fuente para contacto */
+            color: #000; /* Color del texto */
+            text-align: center; /* Centrar el texto */
+        }
+        h1 {
+            margin: 0; /* Eliminar márgenes por defecto */
+        }
+    </style>
+</head>
+<body>
+    <div class="barra">
+        <h1>MEDICINA NATURAL</h1>
+        <h1>GERGONECO</h1>
+    </div>
+    <div class="fondo-amarillo">
+        <img class="papasacha" src="papasacha1.1.png" alt="Imagen izquierda">
+        <img class="capsula" src="capsula1.png" alt="Imagen derecha">
+        <div class="nombre-papa">PAPA SACHAGERGON</div>
+        <div class="nombre-capsula">CAPSULA GERGONECO</div>
+        <div class="precio-capsula">Precio: $25.00</div>
+        <div class="ver-mas" onclick="toggleInfo()">Ver más información</div>
+        <img class="arina" src="harinagergon.png" alt="Imagen centro">
+        <div class="info-curativa" id="info-curativa">
+            <h3>Propiedades curativas de la Cápsula Gergoneco:</h3>
+            <ul>
+                <li>Alivia el dolor de estómago.</li>
+                <li>Mejora la digestión.</li>
+                <li>Fortalece el sistema inmunológico.</li>
+                <li>Propiedades antiinflamatorias.</li>
+                <li>Ayuda a reducir el estrés.</li>
+            </ul>
+        </div>
+        <div class="contacto">
+            <a href="https://wa.me/920067138" target="_blank">
+                <img src="wasap.png" alt="Imagen de WhatsApp" style="width: 50px; height: 50px;">
+                Contáctanos 
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        function toggleInfo() {
+            const info = document.getElementById('info-curativa');
+            info.style.display = info.style.display === 'none' || info.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

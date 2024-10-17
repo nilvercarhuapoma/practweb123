@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EssenceAguaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #066f28; /* Color de fondo para la cabecera */
+            padding: 30px; /* Aumenta el espacio interno para agrandar la cabecera */
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            position: relative; /* Necesario para posicionar el logo */
+        }
+        .header img {
+            position: absolute;
+            left: 20px; /* Espacio desde el borde izquierdo */
+            top: 50%; /* Centrado verticalmente */
+            transform: translateY(-50%); /* Ajusta el centrado vertical */
+            height: 80px; /* Ajusta el tamaño del logo (aumentado) */
+        }
+        .header h1 {
+            font-size: 36px; /* Tamaño del título */
+            font-weight: bold; /* Texto en negrita */
+            font-style: italic; /* Texto en cursiva */
+            margin: 0; /* Sin margen */
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto; /* Asegura que la imagen mantenga su proporción */
+        }
+        .product-image {
+            width: 200px;
+            height: auto;
+        }
+        .product-description {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .product-price {
+            font-size: 20px;
+            color: green;
+        }
+        .btn {
+            background-color: #95465c; /* Color de fondo para el botón */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #e38c56; /* Color al pasar el ratón */
+        }
+        /* Estilos para la ventana emergente (modal) */
+        .modal {
+            display: none; /* Oculta el modal por defecto */
+            position: fixed; /* Fijo en la pantalla */
+            z-index: 1001; /* Asegura que esté sobre otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Agrega barras de desplazamiento si es necesario */
+            background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+        }
+        .modal-content {
+            background-color: white; /* Fondo blanco */
+            margin: 5% auto; /* Margen vertical para centrarlo mejor */
+            padding: 20px; /* Espaciado dentro del modal */
+            border: 1px solid #888; /* Borde */
+            width: 80%; /* Ancho del modal (más grande) */
+            max-width: 1200px; /* Ancho máximo del modal */
+            display: flex; /* Usa flexbox para el layout */
+            align-items: flex-start; /* Alinea los elementos al inicio */
+            border-radius: 8px; /* Bordes redondeados para un aspecto más moderno */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra sutil */
+            overflow: hidden; /* Asegura que el contenido no desborde el modal */
+        }
+        .modal-content img {
+            width: 200px; /* Tamaño de la imagen en el modal (más grande) */
+            height: auto; /* Mantiene la proporción */
+            margin-right: 20px; /* Espacio entre imagen y texto */
+        }
+        .modal-content .text {
+            flex: 1; /* Ocupa el espacio restante */
+        }
+        .modal-content h2 {
+            margin: 0; /* Sin margen */
+        }
+        .modal-content .divider {
+            border-top: 1px solid black; /* Raya separadora */
+            margin: 10px 0; /* Margen vertical */
+        }
+        .modal-content .segments {
+            list-style: none; /* Quita los puntos de la lista */
+            padding: 0; /* Sin relleno */
+            margin: 0; /* Sin margen */
+        }
+        .modal-content .segments li {
+            margin-bottom: 10px; /* Margen inferior para los elementos */
+            cursor: pointer; /* Cursor tipo puntero */
+            color: blue; /* Color azul para los enlaces */
+        }
+        .modal-content .segments li:hover {
+            text-decoration: underline; /* Subraya el texto al pasar el ratón */
+        }
+        .modal-content .more-info {
+            display: none; /* Oculta el texto adicional por defecto */
+            margin-top: 10px; /* Margen superior */
+            line-height: 1.5; /* Espaciado entre líneas para mayor legibilidad */
+        }
+        .modal-content .more-info p {
+            margin: 0; /* Sin margen en los párrafos */
+        }
+        .modal-content .close {
+            color: #aaa; /* Color del texto del botón de cerrar */
+            float: right; /* Alinea el botón a la derecha */
+            font-size: 28px; /* Tamaño del texto */
+            font-weight: bold; /* Letra en negrita */
+        }
+        .modal-content .close:hover,
+        .modal-content .close:focus {
+            color: black; /* Color del botón de cerrar al pasar el ratón */
+            text-decoration: none; /* Sin subrayado */
+            cursor: pointer; /* Cursor tipo puntero */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="Logo"> <!-- Logo en la esquina izquierda -->
+        <h1>EssenceAguaje</h1>
+    </div>
+    <div class="content">
+        <div class="image-container">
+            <img src="portada3.jpg" alt="Descripción de la imagen">
+        </div>
+        <img src="igauaje2.jpg" alt="Imagen del producto" class="product-image">
+        <div class="product-description">Con propiedad nutritiva y medicinal</div>
+        <div class="product-name">Esencia Aguaje</div>
+        <div class="product-price">S/. 30.00</div>
+        <button class="btn" onclick="openModal()">Más Información</button>
+    </div>
+    
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img src="igauaje2.jpg" alt="Imagen del producto en modal">
+            <div class="text">
+                <h2>EssenceAguaje</h2>
+                <div class="divider"></div>
+                <ul class="segments">
+                    <li onclick="toggleInfo('amoterapia', this)">Amoterapia</li>
+                    <div id="amoterapia" class="more-info">
+                        <p>- Reducción del estrés y la ansiedad.</p>
+                        <p>- Mejora del sueño.</p>
+                        <p>- Aumento de la energía y el estado de ánimo.</p>
+                    </div>
+                    <li onclick="toggleInfo('cosmeticos', this)">Cosméticos y cuidado personal</li>
+                    <div id="cosmeticos" class="more-info">
+                        <p>- Ingredientes naturales y seguros.</p>
+                        <p>- Propiedades antiinflamatorias y antioxidantes.</p>
+                        <p>- Hidratación y nutrición.</p>
+                        <p>- Aromas agradables.</p>
+                    </div>
+                    <li onclick="toggleInfo('farmaceuticos', this)">Productos farmacéuticos</li>
+                    <div id="farmaceuticos" class="more-info">
+                        <p>- Propiedades antimicrobianas y antivirales.</p>
+                        <p>- Alivio del dolor.</p>
+                        <p>- Tratamiento de enfermedades respiratorias.</p>
+                        <p>- Apoyo al sistema inmunológico.</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        function toggleInfo(sectionId, element) {
+            const sectionToToggle = document.getElementById(sectionId);
+            if (sectionToToggle) {
+                const isVisible = sectionToToggle.style.display === 'block';
+                document.querySelectorAll('.more-info').forEach(info => info.style.display = 'none'); // Oculta todas las secciones
+                sectionToToggle.style.display = isVisible ? 'none' : 'block'; // Muestra u oculta la sección actual
+            }
+        }
+    </script>
+</body>
+</html>
